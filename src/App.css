@@ -1,38 +1,173 @@
-.App {
-  text-align: center;
+/*ToggleButton*/
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  width: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+
+.App{
+  display:flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items:center;
+  
+  
+  padding: 6%;
+}
+.comment{
+  position:absolute;
+  bottom: 70%;
+  left: 70%;
+  background: #606060;
+  border-radius: 3px;
   color: white;
+  padding:0.5% 1%;
+  font-size: 11px;
+display: none;
+
 }
 
-.App-link {
-  color: #61dafb;
+#img_div{
+  position: relative;
+}
+#profile p{
+display:flex;
+align-items: center;
+width: 90%;
+padding:5px 10px;
+position: relative;
+}
+#profile p:hover > .comment,#img_div:hover > .comment{
+  display:flex
+}
+#profile p:hover,#iimg :hover{
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+span{
+  font-size: 13px; 
+  display: flex;
+  height: 100%;
+  width: 140px;
+  overflow-y: auto;
+  
+}
+#bio{
+  align-items: flex-start;
+}
+*::-webkit-scrollbar {
+  width: 15px;
+  height: 7px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+*::-webkit-scrollbar-track {
+  background: #d6d6d6;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #9e9d9d;
+  border-radius: 20px;
+  
+}
+#profile{
+  background: #fff;
+  border-radius: 2px;
+  padding: 5% 10%;
+  margin-top: 2%;
+  width: 30%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: relative;
+
+  
+}
+#profile:hover{
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+ cursor:pointer
+}
+
+.tag{
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  font-size: large;
+  color:indigo;
+  margin-right: 2%;
+  height: 100%;
+
+  align-items: center;
+}
+.tag:hover{
+  color: rgb(130, 34, 219);
+  
+}
+button{
+  position: absolute;
+  bottom: 2%;
+  right: 2%;
+  background: rgb(80, 113, 231);
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+  padding: 1% 2%;
+}
+button:hover{
+  background: rgb(43, 85, 235);
+  cursor:pointer
 }
